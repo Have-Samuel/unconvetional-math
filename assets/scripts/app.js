@@ -6,8 +6,8 @@ function getUserNumberInput() {
   return parseInt(userInput.value);
 }
 
-function readAndWrite(operator, prevResult, calResult) {
-  const calDescription = `${prevResult} ${operator} ${calResult}`;
+function readAndWrite(operator, resultBeforeCal, calNumber) {
+  const calDescription = `${resultBeforeCal} ${operator} ${calNumber}`;
   outputResult(currentResult, calDescription);
 }
 
@@ -16,8 +16,14 @@ function add() {
   const initialResult = currentResult;
   currentResult += enteredNumber;
   readAndWrite('+', initialResult, enteredNumber);
-  logEntries.push(enteredNumber);
-  console.log(logEntries[1]);
+  logEntry = {
+    operation: 'ADD',
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function subtract() {
