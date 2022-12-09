@@ -1,9 +1,14 @@
 const defaultValue = 0;
 let currentResult = defaultValue;
 
+function getUserNumberInput() {
+  return parseInt(userInput.value);
+}
+
 function add() {
-  const calDescription = `${currentResult} + ${userInput.value}`;
-  currentResult += parseInt(userInput.value);
+  const enteredNumber = getUserNumberInput();
+  const calDescription = `${currentResult} + ${enteredNumber}`;
+  currentResult += enteredNumber;
   outputResult(currentResult, calDescription);
 }
 
